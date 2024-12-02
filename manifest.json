@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "AI Coding Assistant",
+  "version": "1.0",
+  "description": "An AI assistant to help with coding on platforms like LeetCode and HackerRank.",
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": ["scripting", "activeTab", "storage"],
+  "host_permissions": ["https://leetcode.com/*", "https://www.hackerrank.com/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://leetcode.com/*", "https://www.hackerrank.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
